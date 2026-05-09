@@ -19,13 +19,7 @@ function getSum(firstNumber: number, secondNumber: number): number {
   return firstNumber + secondNumber;
 }
 
-console.log(getSum(10, 15));
-
-function formatText(
-  text: string,
-  format: "uppercase" | "lowercase" | "capitalize"
-): string {
-
+function formatText(text: string, format: "uppercase" | "lowercase" | "capitalize"): string {
   switch (format) {
     case "uppercase":
       return text.toUpperCase();
@@ -41,13 +35,9 @@ function formatText(
   }
 }
 
-console.log(formatText("typescript", "uppercase"));
-
 function deleteSymbol(text: string, symbol: string): string {
   return text.replaceAll(symbol, "");
 }
-
-console.log(deleteSymbol("Hello!!!", "!"));
 
 const usersList: IUser[] = [
   {
@@ -66,9 +56,9 @@ const usersList: IUser[] = [
   }
 ];
 
-const adultUsers = usersList.filter((user) => user.age >= 18);
-
-console.log(adultUsers);
+const adultUsers: IUser[] = usersList.filter(
+  (user: IUser): boolean => user.age >= 18
+);
 
 const moderator: IModerator = {
   username: "AdminUser",
@@ -76,5 +66,3 @@ const moderator: IModerator = {
   permissions: ["delete", "edit", "ban"],
   isOnline: true
 };
-
-console.log(moderator);
