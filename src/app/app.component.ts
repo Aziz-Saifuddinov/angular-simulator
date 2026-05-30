@@ -17,15 +17,19 @@ companyCategory: string = 'туризм';
 constructor() {
   this.saveLastVisit();
   this.updateVisitsCount();
+
+  nameCollection.getAll();
+  numberCollection.replace(1, 77);
 }
 
 isPrimaryColor(color: Color): boolean {
-  return (
-    color === Color.RED ||
-    color === Color.GREEN ||
-    color === Color.BLUE
-  );
+  const primaryColors: Color[] = [
+    Color.RED,
+    Color.GREEN,
+    Color.BLUE
+  ];
 
+  return primaryColors.includes(color);
 }
 
 saveLastVisit(): void {
@@ -37,8 +41,4 @@ updateVisitsCount(): void {
   const storedValue: number = Number(localStorage.getItem('visitsCount') || 0);
   localStorage.setItem('visitsCount', String(storedValue + 1));
 }
-
 }
-
-nameCollection.getAll();
-numberCollection.replace(1, 77);
