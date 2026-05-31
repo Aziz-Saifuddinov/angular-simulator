@@ -1,1 +1,57 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="container header-container">
+    <div>
+      <img src="/images/logo.svg" alt="logo">
+
+      <div class="company-name">
+        {{ companyName }}
+      </div>
+    </div>
+    <nav class="navigation fs-18 semi-bold white">
+      <a id="nav-home" href="#">Главная</a>
+      <a id="nav-about-guide" href="#">Про гида</a>
+      <a id="nav-tour-program" href="#">Программа тура</a>
+      <a id="nav-pricing" href="#">Стоимость</a>
+      <a id="nav-blog" href="#">Блог</a>
+      <a id="nav-contacts" href="#">Контакты</a>
+      <button class="consultation-button fs-16 semi-bold white">Консультация</button>
+    </nav>
+  </div>
+  <div class="main-info">
+    <div class="banner"></div>
+    <div class="main-title container white regular">
+      Насладись прогулкой в горах <br>с командой единомышленников
+    </div>
+    <div class="order-tour-section container fs-16">
+      <div class="input-banner">
+        <select class="fs-16 bold white">
+          <option>Локация для тура</option>
+          <option>Нурек</option>
+          <option>Варзоб</option>
+          <option>Вахдат</option>
+          <option>Худжанд</option>
+        </select>
+        <span class="fs-14 regular">выберите из списка</span>
+      </div>
+      <div class="input-banner">
+        <input class="fs-16 bold" type="text" placeholder="Дата похода">
+        <span class="fs-14 regular">укажите диапазон</span>
+      </div>
+      <div class="input-banner">
+        <select class="fs-16 bold white">
+          <option>Участники</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+        </select>
+        <span class="fs-14 regular">минимум 4 человека</span>
+      </div>
+      <div class="input-banner">
+        <button class="fs-16 bold third-color">Найти программу</button>
+      </div>
+    </div>
+  </div>
+</header>
