@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import './training'
 import { Color } from '../enums/Color';
 import { Collection, nameCollection, numberCollection } from './collection';
-import { ICard } from '../interfaces/ICard';
+import { IFeature } from '../interfaces/IFeature';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ export class AppComponent {
   showTimer: boolean = true;
   liveInputText: string = '';
 
-  cards: ICard[] = [
+  features: IFeature[] = [
     {
       title: 'Опытный гид',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
@@ -74,6 +74,7 @@ export class AppComponent {
     const storedValue: number = Number(localStorage.getItem('visitsCount') || 0);
     localStorage.setItem('visitsCount', String(storedValue + 1));
   }
+
 }
 
 nameCollection.getAll();
