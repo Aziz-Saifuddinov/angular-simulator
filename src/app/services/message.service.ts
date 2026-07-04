@@ -8,9 +8,15 @@ import { MessageType } from '../../enums/Message';
 export class MessageService {
 
   messageList: IMessage[] = [];
+  private nextId = 1;
 
   addMessage(type: MessageType, text: string): void {
-    const newMessage: IMessage = { type, text };
+    const newMessage: IMessage = {
+      id: this.nextId++,
+      type,
+      text,
+    };
+
     this.messageList = [newMessage, ...this.messageList];
 
     setTimeout(() => {
