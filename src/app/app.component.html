@@ -240,9 +240,12 @@
 
 <div class="notification-message-wrapper">
 
-  @for (message of messageService.messageList; track message) {
-    <ng-container [ngTemplateOutlet]="notificationMessage" [ngTemplateOutletContext]="{ message: message }"></ng-container>
-  }
+@for (message of messageService.messageList; track message.id) {
+  <ng-container
+    [ngTemplateOutlet]="notificationMessage"
+    [ngTemplateOutletContext]="{ message: message }">
+  </ng-container>
+}
 
 </div>
 
