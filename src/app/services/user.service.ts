@@ -5,6 +5,7 @@ import { LoaderService } from './loader.service';
 import { MessageService } from './message.service';
 import { UserApiService } from './user-api.sevice';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,16 +17,35 @@ export class UserService {
   private messageService: MessageService = inject(MessageService);
   private usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.usersSubject.asObservable(); 
+  private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   setUsers(users: IUser[]): void {
     this.usersSubject.next(users);
+    this.localStorageService.setValue('users', users)
   }
 
   getUsers(): IUser[] {
     return this.usersSubject.getValue();
   } 
 
+  deleteUser(user: IUser): void {
+    const updatedUsers: IUser[] = this.getUsers().filter((u: IUser) => u.id !== user.id);
+    this.setUsers(updatedUsers);
+  }
+
+  addUser(user: IUser): void {
+    const currentUsers: IUser[] = this.getUsers();
+    this.setUsers([...currentUsers, user]); 
+  }
+
   loadUsers(): Observable<IUser[]> {
+
+    const usersListStorage: IUser[] = this.localStorageService.getValue<IUser[]>('users') || [];
+
+    if (usersListStorage && usersListStorage.length > 0) {
+      return of(usersListStorage);
+    }
+
     this.loaderService.showLoader();
 
     return this.userApiService.getUsers()
