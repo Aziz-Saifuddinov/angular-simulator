@@ -39,11 +39,11 @@ export class UsersPageComponent implements OnInit {
       .subscribe();
     }
 
-    onAddUser(user: IUser): void {
+  onAddUser(user: IUser): void {
     this.userService.addUser(user);
   }
 
-  deleteUser(user: IUser): void {
+  onDeleteUser(user: IUser): void {
     this.userService.deleteUser(user);
   }
 
