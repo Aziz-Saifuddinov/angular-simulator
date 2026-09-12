@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -100px;
+  background-color: var(--white-color);
 
   .subscribe-wrapper {
     background-color: var(--white-color);
@@ -227,5 +227,13 @@
         }
       }
     }
+  }
+}
+
+:host::ng-deep {
+  .fa-telegram, .fa-vk, .fa-pinterest, .fa-skype {
+    height: 30px;
+    width: 30px;
+    color: var(--white-color);
   }
 }
