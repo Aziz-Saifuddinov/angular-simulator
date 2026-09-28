@@ -2,11 +2,11 @@
   <div class="user-card-container">
 
     <div class="user-card-header">
-      <h3 class="fs-26 extra-bold third-color">{{ user.name }}</h3>
+      h3 class="fs-26 extra-bold third-color">{{ user.name | uppercase }}</h3>
       <span class="fs-15 bold">{{ '@' + user.username }}</span>
     </div>
 
-    <div class="user-card-body">
+    <class="user-card-body">
 
       <div class="info-section">
         <h4 class="section-title fs-12 extra-bold">Контакты</h4>
@@ -16,7 +16,7 @@
         </div>
         <div class="info-row">
           <p class="info-label fs-14 regular">Телефон:</p>
-          <span class="fs-14 bold third-color">{{ user.phone }}</span>
+          <span class="fs-14 bold third-color">{{ user.phone | phone: phoneFormat.INTERNATIONAL }}</span>
         </div>
         <div class="info-row">
           <p class="info-label fs-14 regular">Веб-сайт:</p>
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="info-section">
+      <class="info-section">
         <h4 class="section-title fs-12 extra-bold">Место работы</h4>
         <div class="info-row">
           <p class="info-label fs-14 regular">Компания:</p>
@@ -62,9 +62,5 @@
           <span class="fs-14 bold third-color">{{ user.company.bs || 'Неизвестно' }}</span>
         </div>
       </div>
-
-    </div>
-  </div>
+     <button Hover (click)="onDeleteClick()">Удалить пользователя</button>
 </div>
-
-<button (click)="onDeleteClick()">Удалить пользователя</button>
