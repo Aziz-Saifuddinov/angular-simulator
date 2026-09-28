@@ -4,13 +4,12 @@
     <h2>User:</h2>
     <div>
       <label for="name">Name:</label>
-      <input id="name" type="text" formControlName="name">
+      <input Gradient [gradientConfiguration]="gradientBorderConfiguration" id="name" type="text" formControlName="name">
     </div>
 
     <div>
       <label for="user-name">Username:</label>
-      <input id="user-name" type="text" formControlName="username">
-    </div>
+      <input Gradient [gradientConfiguration]="gradientBorderConfiguration" id="user-name" type="text" formControlName="username">
 
     <div>
       <label for="email">Email:</label>
@@ -89,5 +88,5 @@
     </div>
   </div>
 
-  <button type="submit">Создать пользователя</button>
+  <button Hover type="submit">Создать пользователя</button>
 </form>

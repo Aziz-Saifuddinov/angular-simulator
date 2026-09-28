@@ -6,10 +6,14 @@ import { UserService } from '../services/user.service';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { UserCreateComponent } from '../user-create/user-create.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
+import { PluralPipe } from "../pipes/plural.pipe";
+import { IGradientConfiguration } from '../../interfaces/IGradient';
+import { GradientDirective } from '../directive/gradient.directive';
+
 
 @Component({
   selector: 'app-users-page',
-  imports: [AsyncPipe, UserCardComponent, UserCreateComponent, UsersFilterComponent],
+  imports: [AsyncPipe, UserCardComponent, UserCreateComponent, UsersFilterComponent, PluralPipe, GradientDirective],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })
@@ -38,6 +42,12 @@ export class UsersPageComponent implements OnInit {
       )
       .subscribe();
     }
+
+    cardConfiguration: IGradientConfiguration = {
+    colors: ['var(--beige-color)', 'var(--third-color)', 'var(--secondary-color)', 'var(--beige-color)'],
+    thickness: '3px',
+    delay: 500
+  }
 
   onAddUser(user: IUser): void {
     this.userService.addUser(user);
